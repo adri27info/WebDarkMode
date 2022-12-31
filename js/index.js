@@ -43,16 +43,23 @@ function guardarTema(valor) {
 }
 
 function establecerTema() {
-  let tema = JSON.parse(db.getItem("tema"));
-
-  if (tema === "dark") {
-    comprobarElemento(
-      "icono_luna",
-      document.getElementById("icono_luna"),
-      false
-    );
-  } else if (tema === "light") {
-    comprobarElemento("icono_sol", document.getElementById("icono_sol"), false);
+  if (db.getItem("tema") != null) {
+    let tema = JSON.parse(db.getItem("tema"));
+    if (tema === "dark") {
+      comprobarElemento(
+        "icono_luna",
+        document.getElementById("icono_luna"),
+        false
+      );
+    } else if (tema === "light") {
+      comprobarElemento(
+        "icono_sol",
+        document.getElementById("icono_sol"),
+        false
+      );
+    }
+  } else {
+    return;
   }
 }
 
